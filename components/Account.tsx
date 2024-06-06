@@ -123,6 +123,7 @@ export default function Account({ session }: { session: Session }) {
     container: {
       marginTop: 40,
       padding: 12,
+      backgroundColor:"#fcf6ea"
     },
     verticallySpaced: {
       paddingTop: 4,
@@ -133,7 +134,7 @@ export default function Account({ session }: { session: Session }) {
       marginTop: 20,
     },
     button: {
-      width: 300, 
+       
       padding: 20, 
       marginTop: 10, 
       borderWidth: 2, 
@@ -145,6 +146,7 @@ export default function Account({ session }: { session: Session }) {
       shadowOpacity: 0.1, 
       shadowRadius: 8, 
       elevation: 6, 
+      alignItems: 'center'
     },
     buttonText: {
       color: '#000',

@@ -1,10 +1,13 @@
 import { useState } from 'react'
 import { supabase } from '../lib/supabase'
-import {  StyleSheet, View, Alert, Text } from 'react-native'
+import {  StyleSheet, View, Alert} from 'react-native'
 import { Button, Input } from '@rneui/themed'
+import { useNavigation } from '@react-navigation/native'
 
 
 export default function Pays() {
+    const navigation = useNavigation()
+
     const [name,setName] = useState('')
     const [capital,setCapital] = useState('')
     const [drapeau,setDrapeau] = useState('')
@@ -19,9 +22,12 @@ export default function Pays() {
         capital: capital,
         nbr_habitant: nbr_habitant,
     })
+    setLoading(false)
     if (error) Alert.alert(error.message)
-        else setLoading(false)
+        else {
         Alert.alert("Votre pays à bien été enregistré")
+        navigation.goBack()
+        }
     }
     return (
         <View style={styles.container}>
@@ -56,7 +62,7 @@ export default function Pays() {
             />
           </View>         
           <View style={styles.verticallySpaced}>
-            <Button title="Ajouter pays" disabled={loading} onPress={() => AddPays()} />
+            <Button title="Ajouter pays" loading={loading} onPress={() => AddPays()} />
             
           </View>
         </View>
@@ -67,6 +73,7 @@ const styles = StyleSheet.create({
     container: {
       marginTop: 40,
       padding: 12,
+      backgroundColor:'#fcf6ea'
     },
     verticallySpaced: {
       paddingTop: 4,

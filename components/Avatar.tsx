@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
   image: {
     objectFit: 'cover',
     paddingTop: 0,
+    
   },
   noImage: {
     backgroundColor: '#333',

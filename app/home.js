@@ -1,16 +1,19 @@
-import { View,StyleSheet,Text,Pressable } from "react-native";
+import { View,StyleSheet,Text,Pressable,Button } from "react-native";
 import { Link } from "expo-router";
 import FetchPays from "../components/FetchPays"
+
 
 export default function AddPaysScreen () {
     return (
         <View style={styles.container}>
+          
       <Link href="/addPays" asChild>
         <Pressable style={styles.button}>
           <Text style={styles.buttonText}>Ajouter un pays</Text>
         </Pressable>
       </Link>
       <FetchPays />
+      
     </View>
   );
 };
