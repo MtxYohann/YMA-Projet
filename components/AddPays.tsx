@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { supabase } from '../lib/supabase'
-import {  StyleSheet, View, Alert } from 'react-native'
+import {  StyleSheet, View, Alert, Text } from 'react-native'
 import { Button, Input } from '@rneui/themed'
 
 
@@ -57,6 +57,7 @@ export default function Pays() {
           </View>         
           <View style={styles.verticallySpaced}>
             <Button title="Ajouter pays" disabled={loading} onPress={() => AddPays()} />
+            
           </View>
         </View>
       )
@@ -74,5 +75,24 @@ const styles = StyleSheet.create({
     },
     mt20: {
       marginTop: 20,
+    },
+    buttonText: {
+      color: '#000',
+      fontSize: 18,
+      fontWeight: 'bold',
+    },
+    button: {
+      width: 300, 
+      padding: 20, 
+      marginTop: 10, 
+      borderWidth: 2, 
+      borderColor: '#333', 
+      borderRadius: 10, 
+      backgroundColor: '#fff',
+      shadowColor: '#000', 
+      shadowOffset: { width: 0, height: 4 }, 
+      shadowOpacity: 0.1, 
+      shadowRadius: 8, 
+      elevation: 6, 
     },
   })

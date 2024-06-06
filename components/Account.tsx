@@ -98,7 +98,7 @@ export default function Account({ session }: { session: Session }) {
           <Input label="Username" value={username || ''} onChangeText={(text) => setUsername(text)} />
         </View> 
         <View>
-        <Link href="/addPays" asChild>
+        <Link href="/home" asChild>
           <Pressable style={styles.button}>
             <Text style={styles.buttonText}>Page d'accueil</Text>
           </Pressable>

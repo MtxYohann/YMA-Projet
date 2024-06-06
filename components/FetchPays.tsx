@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState,useCallback } from 'react'
 import { supabase } from '../lib/supabase'
-import {  StyleSheet, View,Text,FlatList,TouchableOpacity } from 'react-native'
+import {  StyleSheet, Text,FlatList,TouchableOpacity,View } from 'react-native'
+import DeletePays from './DeletePays'
+import { useFocusEffect } from '@react-navigation/native'
 
 export default function Pays() {
     const [countryList,setCountryList] = useState([])
       
-      useEffect(() => {
         const fetchPays = async () => {
           const { data, error } = await supabase
             .from('pays')
@@ -18,9 +19,16 @@ export default function Pays() {
      
           setCountryList(data);
         };
-     
-        fetchPays();
-      }, []);
+        
+        useFocusEffect(
+          useCallback(() => {
+            fetchPays()
+          }, [])
+        )
+      const handleDelete = (countryId) => {
+        setCountryList(countryList.filter(country => country.id !== countryId))
+      }
+
         return (
             <View style={styles.container}>
                 <FlatList
@@ -31,8 +39,10 @@ export default function Pays() {
                         <Text>Nom du pays :{item.name}</Text>
                         <Text>Capital du pays :{item.capital}</Text>
                         <Text>Nombre d'habitant :{item.nbr_habitant}</Text>
+                        <DeletePays countryId={item.id} onDelete={handleDelete} />
                   </TouchableOpacity>
       )}
+      ListFooterComponent={<View style={{ height: 20 }} />}
     />
             </View>
       )   
@@ -40,7 +50,8 @@ export default function Pays() {
 
 const styles = StyleSheet.create({
     container: {
-      marginTop: 40,
+      flex: 1,
+      marginTop: 5,
       padding: 12,
     },
     verticallySpaced: {
@@ -65,4 +76,8 @@ const styles = StyleSheet.create({
     shadowRadius: 8, 
     elevation: 6, 
     },
+    deleteButton: {
+      marginTop: 10,
+      backgroundColor: 'red',
+  },
 })
