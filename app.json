@@ -28,6 +28,15 @@
     "plugins": [
       "expo-secure-store",
       "expo-router"
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "511b4eee-5d65-450f-9e97-01820fc9076a"
+      }
+    },
+    "owner": "myohann"
   }
 }
