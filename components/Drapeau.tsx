@@ -58,10 +58,9 @@ export default function Drapeau({ url, size = 150, onUpload }: Props) {
       console.log('Got image', image)
 
       if (!image.uri) {
-        throw new Error('No image uri!') // Realistically, this should never happen, but just in case...
+        throw new Error('No image uri!') 
       }
 
-      const response = await fetch(image.uri)
       const arraybuffer = await fetch(image.uri).then((res) => res.arrayBuffer())
 
       const fileExt = image.uri?.split('.').pop()?.toLowerCase() ?? 'jpeg'

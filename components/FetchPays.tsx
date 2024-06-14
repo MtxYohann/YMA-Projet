@@ -6,7 +6,6 @@ import { useFocusEffect, useNavigation } from '@react-navigation/native'
 
 export default function Pays() {
     const [countryList,setCountryList] = useState([])
-    const [drapeau,setDrapeau] = useState('')
     const navigation = useNavigation()
 
     const fetchPays = async () => {
