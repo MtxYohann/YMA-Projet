@@ -10,6 +10,7 @@ Page ajout d'un pays dans la base de données ainsi que l'image.
 fetch des informations sur une page d'accueil ( pas d'image car elle n'était pas lié au pays, fonction à venir dans une prochaine maj) 
 Possibilité de supprimer et de modifier un pays
 
+le projet a été build sur expo un apk est donc téléchargable  
 
 ## Installation
 
