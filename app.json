@@ -16,6 +16,7 @@
       "supportsTablet": true
     },
     "android": {
+      "permissions": ["CAMERA", "READ_EXTERNAL_STORAGE", "WRITE_EXTERNAL_STORAGE"],
       "adaptiveIcon": {
         "foregroundImage": "./assets/terre.png",
         "backgroundColor": "#ffffff"
@@ -23,11 +24,11 @@
       "package": "com.anonymous.expousermanagement"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/terre.png"
     },
     "plugins": [
       "expo-secure-store",
-      "expo-router"
+      "expo-router"     
     ],
     "extra": {
       "router": {

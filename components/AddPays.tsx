@@ -3,7 +3,7 @@ import { supabase } from '../lib/supabase'
 import {  StyleSheet, View, Alert} from 'react-native'
 import { Button, Input } from '@rneui/themed'
 import { useNavigation } from '@react-navigation/native'
-
+import Drapeau from './Drapeau'
 
 export default function Pays() {
     const navigation = useNavigation()
@@ -21,6 +21,7 @@ export default function Pays() {
         name: name,
         capital: capital,
         nbr_habitant: nbr_habitant,
+        drapeau: drapeau
     })
     setLoading(false)
     if (error) Alert.alert(error.message)
@@ -60,7 +61,14 @@ export default function Pays() {
               placeholder="68 373 433"
               autoCapitalize={'none'}
             />
-          </View>         
+          </View> 
+          <Drapeau
+                size={200}
+                url={drapeau}
+                onUpload={(url: string) => {
+                setDrapeau(url)
+                }}
+            />       
           <View style={styles.verticallySpaced}>
             <Button title="Ajouter pays" loading={loading} onPress={() => AddPays()} />
             

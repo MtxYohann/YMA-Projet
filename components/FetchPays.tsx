@@ -6,19 +6,21 @@ import { useFocusEffect, useNavigation } from '@react-navigation/native'
 
 export default function Pays() {
     const [countryList,setCountryList] = useState([])
+    const [drapeau,setDrapeau] = useState('')
     const navigation = useNavigation()
-        const fetchPays = async () => {
-          const { data, error } = await supabase
-            .from('pays')
-            .select('*');
-     
-          if (error) {
-            console.error(error);
-            return;
-          }
-     
-          setCountryList(data);
-        };
+
+    const fetchPays = async () => {
+      const { data, error } = await supabase
+        .from('pays')
+        .select('*');
+  
+      if (error) {
+        console.error(error);
+        return;
+      }
+      
+        setCountryList(data);
+      };
         
         useFocusEffect(
           useCallback(() => {
@@ -39,6 +41,7 @@ export default function Pays() {
                     keyExtractor={(item) => item.id.toString()}
                     renderItem={({ item }) => (
                       <View style={styles.itemContainer} >
+                        
                         <Text style={styles.text}>Nom du pays :{item.name}</Text>
                         <Text style={styles.text}>Capital du pays :{item.capital}</Text>
                         <Text style={styles.text}>Nombre d'habitant :{item.nbr_habitant}</Text>
